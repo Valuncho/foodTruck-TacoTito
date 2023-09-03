@@ -13,7 +13,7 @@ namespace Proyecto_1
 {
     public partial class Form1 : Form
     {
-        List<Salsa> listaDeSalsas = new List<Salsa>();
+        List<Pedido> listaDeSalsas = new List<Pedido>();
 
         public Form1()
         {
@@ -24,7 +24,7 @@ namespace Proyecto_1
 
         private void crearSalsa() 
         {
-            Salsa unObjetoSalsa = new Salsa(txtNombre.Text, Convert.ToDecimal(txtPrecio.Text));
+            Pedido unObjetoSalsa = new Salsa(txtNombre.Text, Convert.ToDecimal(txtPrecio.Text));
             listaDeSalsas.Add(unObjetoSalsa);
         }
 

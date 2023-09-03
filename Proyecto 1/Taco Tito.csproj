@@ -54,9 +54,8 @@
     </Compile>
     <Compile Include="Modelo\Alimento.cs" />
     <Compile Include="Modelo\TipoIngrediente.cs" />
-    <Compile Include="Modelo\TipoTortilla.cs" />
     <Compile Include="Modelo\Taco.cs" />
-    <Compile Include="Modelo\Salsa.cs" />
+    <Compile Include="Modelo\Pedido.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
