@@ -52,12 +52,15 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Alimento.cs" />
+    <Compile Include="IngredienteController\IngredienteController.cs" />
+    <Compile Include="Modelo\Ingrediente.cs" />
     <Compile Include="Modelo\TipoIngrediente.cs" />
     <Compile Include="Modelo\Taco.cs" />
     <Compile Include="Modelo\Pedido.cs" />
+    <Compile Include="PedidoController\PedidoController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TacoController\TacoController.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -83,8 +86,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TacoController\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

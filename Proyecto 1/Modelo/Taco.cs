@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Schema;
+using Proyecto_1.Modelo;
 
 namespace Proyecto_1.Modelo
 {
@@ -14,7 +15,7 @@ namespace Proyecto_1.Modelo
         private int PrecioTotal { get;set; }
 
         public Taco() {
-            ingredientes = new List<Ingrediente>();
+            Ingredientes = new List<Ingrediente>();
 
         }
 

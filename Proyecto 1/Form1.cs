@@ -21,7 +21,7 @@ namespace Proyecto_1
             GridListaDeSalsas.Columns.Add("Nombre", "Nombre");
             GridListaDeSalsas.Columns.Add("Precio", "Precio");
         }
-
+        // Borrar es viejo
         private void crearSalsa() 
         {
             Pedido unObjetoSalsa = new Salsa(txtNombre.Text, Convert.ToDecimal(txtPrecio.Text));
@@ -33,46 +33,6 @@ namespace Proyecto_1
             Alimento unObjetoAlimento = new Alimento(txtNombre.Text,Convert.ToDecimal(txtPrecio.Text));
             GridListaDeSalsas.Rows.Add(unObjetoAlimento.NOMBRE, unObjetoAlimento.Precio);
         }
-        
-        private void btnCrearAlimento_Click(object sender, EventArgs e)
-        {
-            crearAlimento();
-
-        }
-
-        private void btnCrearSalsa_Click(object sender, EventArgs e)
-        {
-            crearSalsa();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label18_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAgregarTortilla_Click(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }

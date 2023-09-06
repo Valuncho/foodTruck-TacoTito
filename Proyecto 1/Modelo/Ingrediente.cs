@@ -8,7 +8,7 @@ namespace Proyecto_1.Modelo
 {
     internal class Ingrediente
     {
-        private int Id { get; set; }
+        private int IdIngrediente { get; set; }
         private string NombreIngrediente { get; set; }
         private int Precio { get; set; }
         private TipoIngrediente tipoIngrediente { get; set; }
