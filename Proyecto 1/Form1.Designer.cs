@@ -105,7 +105,6 @@
             this.btnCrearSalsa.TabIndex = 4;
             this.btnCrearSalsa.Text = "Agregar Salsa";
             this.btnCrearSalsa.UseVisualStyleBackColor = true;
-            this.btnCrearSalsa.Click += new System.EventHandler(this.btnCrearSalsa_Click);
             // 
             // GridListaDeSalsas
             // 
@@ -126,7 +125,6 @@
             this.btnCrearAlimento.TabIndex = 6;
             this.btnCrearAlimento.Text = "Agregar Alimento";
             this.btnCrearAlimento.UseVisualStyleBackColor = true;
-            this.btnCrearAlimento.Click += new System.EventHandler(this.btnCrearAlimento_Click);
             // 
             // LbTortilla
             // 
@@ -147,7 +145,6 @@
             this.btnAgregarTortilla.TabIndex = 9;
             this.btnAgregarTortilla.Text = "Agregar Tortilla";
             this.btnAgregarTortilla.UseVisualStyleBackColor = true;
-            this.btnAgregarTortilla.Click += new System.EventHandler(this.btnAgregarTortilla_Click);
             // 
             // comboBox1
             // 
@@ -185,7 +182,6 @@
             this.label1.Size = new System.Drawing.Size(42, 16);
             this.label1.TabIndex = 15;
             this.label1.Text = "Salsa";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
@@ -246,7 +242,6 @@
             this.label6.Size = new System.Drawing.Size(97, 16);
             this.label6.TabIndex = 21;
             this.label6.Text = "Costo Alimento";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -436,7 +431,6 @@
             this.btnEliminarTaco.TabIndex = 47;
             this.btnEliminarTaco.Text = "Eliminar taco";
             this.btnEliminarTaco.UseVisualStyleBackColor = true;
-            this.btnEliminarTaco.Click += new System.EventHandler(this.button12_Click);
             // 
             // btnDuplicarTaco
             // 
@@ -477,7 +471,6 @@
             this.label18.Size = new System.Drawing.Size(124, 16);
             this.label18.TabIndex = 51;
             this.label18.Text = "Cantidad de Tortilla";
-            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
             // comboBox5
             // 
@@ -580,7 +573,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            //this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridListaDeSalsas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

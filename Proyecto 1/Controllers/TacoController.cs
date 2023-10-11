@@ -10,6 +10,7 @@ namespace Proyecto_1.TacoController
 {
     internal class TacoController 
     {
+        // static es para Singleton 
         private static TacoController instance;
         IngredienteController ingredienteController;   
         private List<Taco> listaTaco;

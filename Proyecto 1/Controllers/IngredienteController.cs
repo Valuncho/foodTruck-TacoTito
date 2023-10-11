@@ -8,6 +8,13 @@ namespace Proyecto_1.IngredienteController
 {
     internal class IngredienteController
     {
-        IngredienteController ingrediente = new IngredienteController();
+        private IngredienteController ingredienteController;
+
+
+
+        public IngredienteController()
+        {
+            ingredienteController = new IngredienteController();
+        }
     }
 }

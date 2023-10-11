@@ -15,7 +15,7 @@ namespace Proyecto_1.Modelo
 
 
         public Ingrediente(int Id, string NombreIngrediente, int Precio, TipoIngrediente tipoIngrediente) {
-            this.Id = Id;
+            this.IdIngrediente = Id;
             this.Precio = Precio;
             this.NombreIngrediente = NombreIngrediente;
             this.tipoIngrediente = tipoIngrediente;

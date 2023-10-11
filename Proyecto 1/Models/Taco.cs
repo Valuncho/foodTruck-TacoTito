@@ -16,7 +16,6 @@ namespace Proyecto_1.Modelo
 
         public Taco() {
             Ingredientes = new List<Ingrediente>();
-
         }
 
 
