@@ -46,6 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBase\DAO\TacoDAO.cs" />
+    <Compile Include="DataBase\DAO\PedidoDAO.cs" />
+    <Compile Include="DataBase\DAO\TipoIngredienteDAO.cs" />
+    <Compile Include="DataBase\DAO\IngredienteDAO.cs" />
+    <Compile Include="DataBase\DTO\IngredienteDTO.cs" />
+    <Compile Include="DataBase\DTO\PedidoDTO.cs" />
+    <Compile Include="DataBase\DTO\TacoDTO.cs" />
+    <Compile Include="DataBase\DTO\TipoIngredienteDTO.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
