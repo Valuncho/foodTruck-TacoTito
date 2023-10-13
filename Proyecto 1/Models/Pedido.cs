@@ -11,6 +11,7 @@ namespace Proyecto_1.Modelo
         private int NumeroPedido { get; set; }
         private List<Taco> ListaTacos { get; set; }
         private int PrecioTotalPedidos { get; set; }
+
         public Pedido(int NumeroPedido, List<Taco> ListaTacos, int PrecioTotalPedidos)
         {
             this.NumeroPedido = NumeroPedido;
@@ -18,5 +19,23 @@ namespace Proyecto_1.Modelo
             this.PrecioTotalPedidos = PrecioTotalPedidos;
         }
 
+        public override string ToString()
+        {
+            return $"Pedido #{NumeroPedido} - Total: {PrecioTotalPedidos} - Tacos: {ListaTacos.Count}";
+        }
+
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false; // El objeto no es de la misma clase
+            }
+
+            Pedido otroPedido = (Pedido)obj;
+
+            // Comparamos los numeros de pedido para determinar si son iguales
+            return this.NumeroPedido == otroPedido.NumeroPedido;
+        }
     }
 }
