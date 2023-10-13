@@ -8,7 +8,7 @@ using Proyecto_1.Modelo;
 
 namespace Proyecto_1.Modelo
 {
-    internal class Taco
+    public class Taco
     {
         private int NumeroTaco { get; set; }
         private List<Ingrediente> Ingredientes { get; set; }
