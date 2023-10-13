@@ -12,16 +12,29 @@ namespace Proyecto_1.Modelo
     {
         private int NumeroTaco { get; set; }
         private List<Ingrediente> Ingredientes { get; set; }
-        private int PrecioTotal { get;set; }
+        private int PrecioTotal { get; set; }
 
-        public Taco() {
+        public Taco()
+        {
             Ingredientes = new List<Ingrediente>();
         }
 
+        public override string ToString()
+        {
+            return $"Taco #{NumeroTaco} - Precio: {PrecioTotal} - Ingredientes: {Ingredientes.Count}";
+        }
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false; // El objeto no es de la misma clase
+            }
 
+            Taco otroTaco = (Taco)obj;
 
-
-
+            // Comparamos los numeros de taco para determinar si son iguales
+            return this.NumeroTaco == otroTaco.NumeroTaco;
+        }
     }
 }
