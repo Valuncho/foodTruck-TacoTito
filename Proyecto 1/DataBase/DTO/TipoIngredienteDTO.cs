@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto_1.DTO
 {
-    internal class TipoIngredienteDTO
+    public class TipoIngredienteDTO
     {
         public int IdTipoIngrediente { get; set; }
         public string Detalle { get; set; }

@@ -1,12 +1,6 @@
 ﻿using Proyecto_1.Modelo;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace Proyecto_1.DAO
 {

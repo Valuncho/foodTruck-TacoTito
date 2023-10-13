@@ -8,9 +8,9 @@ namespace Proyecto_1.Modelo
 {
     public class TipoIngrediente
     {
-        private int IdTipoIngrediente { get; set; }
-        private string Detalle { get; set; }
-        private int CantidadMax { get; set; }
+        public int IdTipoIngrediente { get; set; }
+        public string Detalle { get; set; }
+        public int CantidadMax { get; set; }
 
         public TipoIngrediente(int IdTipoIngrediente, string Detalle, int CantidadMax)
         {
