@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto_1.IngredienteController
 {
-    internal class IngredienteController
+    public class IngredienteController
     {
         private IngredienteController ingredienteController;
 
