@@ -12,7 +12,7 @@ namespace Proyecto_1.DAO
     public class IngredienteDAO
     {
         private string ConexionDataBase;
-
+        
         public IngredienteDAO()
         {
             ConexionDataBase = ConfigurationManager.ConnectionStrings["ConexionDB"].ConnectionString;
@@ -67,39 +67,6 @@ namespace Proyecto_1.DAO
                     comando.ExecuteNonQuery();
                 }
             }
-        }
-
-        public Ingrediente ObtenerIngredientePorId(int idIngrediente)
-        {
-            using (SqlConnection conexion = new SqlConnection(ConexionDataBase))
-            {
-                conexion.Open();
-                string consulta = "SELECT IdIngrediente, NombreIngrediente, Precio, TipoIngredienteId FROM Ingredientes " +
-                                  "WHERE IdIngrediente = @IdIngrediente";
-                using (SqlCommand comando = new SqlCommand(consulta, conexion))
-                {
-                    comando.Parameters.AddWithValue("@IdIngrediente", idIngrediente);
-                    using (SqlDataReader lector = comando.ExecuteReader())
-                    {
-                        if (lector.Read())
-                        {
-                            TipoIngrediente tipoIngrediente = ObtenerTipoIngredientePorId(lector.GetInt32(3)); // Asumiendo que tienes un metodo para obtener TipoIngrediente
-                            Ingrediente ingrediente = new Ingrediente
-                            {
-                                IdIngrediente = lector.GetInt32(0),
-                                NombreIngrediente = lector.GetString(1),
-                                Precio = lector.GetInt32(2),
-                                tipoIngrediente = tipoIngrediente
-                            };
-                            return ingrediente;
-                        }
-                        else
-                        {
-                            return null; // El ingrediente no se encontro
-                        }
-                    }
-                }
-            }
-        }
+        }      
     }
 }

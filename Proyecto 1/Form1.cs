@@ -18,21 +18,26 @@ namespace Proyecto_1
         public Form1()
         {
             InitializeComponent();
-            GridListaDeSalsas.Columns.Add("Nombre", "Nombre");
-            GridListaDeSalsas.Columns.Add("Precio", "Precio");
+            GridDePedido.Columns.Add("Nombre", "Nombre");
+            GridDePedido.Columns.Add("Precio", "Precio");
+            GridDePedido.Columns.Add("Ingrediente", "Ingrediente");
         }
         // Borrar es viejo
         private void crearSalsa() 
         {
-            Pedido unObjetoSalsa = new Salsa(txtNombre.Text, Convert.ToDecimal(txtPrecio.Text));
-            listaDeSalsas.Add(unObjetoSalsa);
+            //Pedido unObjetoSalsa = new Salsa(txtNombre.Text, Convert.ToDecimal(txtPrecio.Text));
+            //listaDeSalsas.Add(unObjetoSalsa);
         }
 
         private void crearAlimento()
         {
-            Alimento unObjetoAlimento = new Alimento(txtNombre.Text,Convert.ToDecimal(txtPrecio.Text));
-            GridListaDeSalsas.Rows.Add(unObjetoAlimento.NOMBRE, unObjetoAlimento.Precio);
+            //Alimento unObjetoAlimento = new Alimento(txtNombre.Text,Convert.ToDecimal(txtPrecio.Text));
+            //GridListaDeSalsas.Rows.Add(unObjetoAlimento.NOMBRE, unObjetoAlimento.Precio);
         }
-      
+
+        private void GridListaDeSalsas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
