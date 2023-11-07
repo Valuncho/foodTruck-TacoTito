@@ -31,8 +31,9 @@ namespace Proyecto_1
 
             if (!string.IsNullOrEmpty(detalle))
             {
+                int cantidadMaxima = (int)numericUpDown1.Value;
                 // Llama al método de la controladora para agregar el nuevo tipo de ingrediente
-                controladora.CrearNuevoTipoIngrediente(1, detalle, 5); 
+                controladora.CrearNuevoTipoIngrediente(1, detalle, cantidadMaxima); 
 
                 textBox1.Text = string.Empty;
                 ActualizarDataGridView();
@@ -73,5 +74,9 @@ namespace Proyecto_1
             }
         }
 
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

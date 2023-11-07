@@ -32,12 +32,15 @@
             this.lblTipoIngredienteTexto = new System.Windows.Forms.Label();
             this.DataGridTipoIngrediente = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridTipoIngrediente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnTipoIngredienteAgregar
             // 
-            this.btnTipoIngredienteAgregar.Location = new System.Drawing.Point(110, 39);
+            this.btnTipoIngredienteAgregar.Location = new System.Drawing.Point(10, 102);
             this.btnTipoIngredienteAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnTipoIngredienteAgregar.Name = "btnTipoIngredienteAgregar";
             this.btnTipoIngredienteAgregar.Size = new System.Drawing.Size(137, 22);
@@ -49,7 +52,7 @@
             // lblTipoIngredienteTexto
             // 
             this.lblTipoIngredienteTexto.AutoSize = true;
-            this.lblTipoIngredienteTexto.Location = new System.Drawing.Point(11, 24);
+            this.lblTipoIngredienteTexto.Location = new System.Drawing.Point(7, 43);
             this.lblTipoIngredienteTexto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTipoIngredienteTexto.Name = "lblTipoIngredienteTexto";
             this.lblTipoIngredienteTexto.Size = new System.Drawing.Size(113, 13);
@@ -67,17 +70,51 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(14, 39);
+            this.textBox1.Location = new System.Drawing.Point(125, 40);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(84, 20);
             this.textBox1.TabIndex = 4;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(138, 66);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(37, 20);
+            this.numericUpDown1.TabIndex = 5;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 68);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Cantidad Maxima";
             // 
             // TipoIngredienteView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(439, 251);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.DataGridTipoIngrediente);
             this.Controls.Add(this.lblTipoIngredienteTexto);
@@ -86,6 +123,7 @@
             this.Name = "TipoIngredienteView";
             this.Text = "IngredienteView";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridTipoIngrediente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,5 +135,7 @@
         private System.Windows.Forms.Label lblTipoIngredienteTexto;
         private System.Windows.Forms.DataGridView DataGridTipoIngrediente;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label1;
     }
 }
