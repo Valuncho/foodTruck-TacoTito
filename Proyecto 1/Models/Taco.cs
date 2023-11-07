@@ -8,11 +8,11 @@ using Proyecto_1.Modelo;
 
 namespace Proyecto_1.Modelo
 {
-    internal class Taco
+    public class Taco
     {
-        private int NumeroTaco { get; set; }
-        private List<Ingrediente> Ingredientes { get; set; }
-        private int PrecioTotal { get; set; }
+        public int NumeroTaco { get; set; }
+        public List<Ingrediente> Ingredientes { get; set; }
+        public int PrecioTotal { get; set; }
 
         public Taco()
         {

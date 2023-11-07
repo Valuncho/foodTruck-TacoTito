@@ -7,13 +7,13 @@ using Proyecto_1.Modelo;
 
 namespace Proyecto_1.PedidoController
 {
-    internal class PedidoController
+    public class PedidoController
     {
         private static PedidoController instance;
         PedidoController pedidoController;
         private List<Pedido> listaPedido;
         private int numeroPedido;
-
+        
 
         public PedidoController()
         {

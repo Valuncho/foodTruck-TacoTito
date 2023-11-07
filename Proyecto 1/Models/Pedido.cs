@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Proyecto_1.Modelo
 {
-    internal class Pedido
+    public class Pedido
     {
-        private int NumeroPedido { get; set; }
-        private List<Taco> ListaTacos { get; set; }
-        private int PrecioTotalPedidos { get; set; }
+        public int NumeroPedido { get; set; }
+        public List<Taco> ListaTacos { get; set; }
+        public int PrecioTotalPedidos { get; set; }
 
-        public Pedido(int NumeroPedido, List<Taco> ListaTacos, int PrecioTotalPedidos)
+        public Pedido(int NumeroPedido, int PrecioTotalPedidos)
         {
             this.NumeroPedido = NumeroPedido;
-            this.ListaTacos = ListaTacos;
             this.PrecioTotalPedidos = PrecioTotalPedidos;
+        }
+        public Pedido()
+        {
+            this.ListaTacos = new List<Taco>();
         }
 
         public override string ToString()

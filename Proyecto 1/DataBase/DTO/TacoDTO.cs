@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Proyecto_1.DTO
 {
-    internal class TacoDTO
+    public class TacoDTO
     {
+        public int NumeroTaco { get; set; }
+        public List<IngredienteDTO> Ingrediente { get; set;}
+        public int PrecioTotal { get; set; }
     }
 }

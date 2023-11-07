@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Proyecto_1.Modelo
 {
-    internal class Ingrediente
+    public class Ingrediente
     {
-        private int IdIngrediente { get; set; }
-        private string NombreIngrediente { get; set; }
-        private int Precio { get; set; }
-        private TipoIngrediente tipoIngrediente { get; set; }
+        public int IdIngrediente { get; set; }
+        public string NombreIngrediente { get; set; }
+        public int Precio { get; set; }
+        public TipoIngrediente tipoIngrediente { get; set; }
 
         public Ingrediente(int Id, string NombreIngrediente, int Precio, TipoIngrediente tipoIngrediente)
         {
