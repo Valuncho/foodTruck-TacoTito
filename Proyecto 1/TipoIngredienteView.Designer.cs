@@ -62,9 +62,9 @@
             // DataGridTipoIngrediente
             // 
             this.DataGridTipoIngrediente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridTipoIngrediente.Location = new System.Drawing.Point(252, 39);
+            this.DataGridTipoIngrediente.Location = new System.Drawing.Point(215, 40);
             this.DataGridTipoIngrediente.Name = "DataGridTipoIngrediente";
-            this.DataGridTipoIngrediente.Size = new System.Drawing.Size(176, 150);
+            this.DataGridTipoIngrediente.Size = new System.Drawing.Size(212, 150);
             this.DataGridTipoIngrediente.TabIndex = 3;
             this.DataGridTipoIngrediente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridTipoIngrediente_CellContentClick);
             // 

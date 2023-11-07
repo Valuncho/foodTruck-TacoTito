@@ -19,7 +19,7 @@ namespace Proyecto_1
         public TipoIngredienteView()
         {
             InitializeComponent();
-            DataGridTipoIngrediente.Columns.Add("IdTipoIngrediente", "ID");
+           // DataGridTipoIngrediente.Columns.Add("IdTipoIngrediente", "ID");
             DataGridTipoIngrediente.Columns.Add("Detalle", "Detalle");
             DataGridTipoIngrediente.Columns.Add("CantidadMax", "Cantidad Máxima");
             controladora = new TipoIngredienteController();
@@ -33,7 +33,7 @@ namespace Proyecto_1
             {
                 int cantidadMaxima = (int)numericUpDown1.Value;
                 // Llama al método de la controladora para agregar el nuevo tipo de ingrediente
-                controladora.CrearNuevoTipoIngrediente(1, detalle, cantidadMaxima); 
+                controladora.CrearNuevoTipoIngrediente(detalle, cantidadMaxima); 
 
                 textBox1.Text = string.Empty;
                 ActualizarDataGridView();
@@ -65,7 +65,7 @@ namespace Proyecto_1
                 DataGridViewRow fila = new DataGridViewRow();
 
                 // Agrega cada propiedad del tipo de ingrediente como una celda en la fila
-                fila.Cells.Add(new DataGridViewTextBoxCell { Value = tipoIngrediente.IdTipoIngrediente });
+                //fila.Cells.Add(new DataGridViewTextBoxCell { Value = tipoIngrediente.IdTipoIngrediente });
                 fila.Cells.Add(new DataGridViewTextBoxCell { Value = tipoIngrediente.Detalle });
                 fila.Cells.Add(new DataGridViewTextBoxCell { Value = tipoIngrediente.CantidadMax });
 

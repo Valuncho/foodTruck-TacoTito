@@ -16,9 +16,9 @@ namespace Proyecto_1.IngredienteController
             tiposIngredientes = new List<TipoIngrediente>();
         }
 
-        public void CrearNuevoTipoIngrediente(int idTipoIngrediente, string detalle, int cantidadMax)
+        public void CrearNuevoTipoIngrediente( string detalle, int cantidadMax)
         {
-            TipoIngrediente tipoIngrediente = new TipoIngrediente(idTipoIngrediente, detalle, cantidadMax);
+            TipoIngrediente tipoIngrediente = new TipoIngrediente(detalle, cantidadMax);
             tiposIngredientes.Add(tipoIngrediente);
         }
 

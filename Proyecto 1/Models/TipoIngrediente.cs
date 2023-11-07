@@ -12,7 +12,7 @@ namespace Proyecto_1.Modelo
         public string Detalle { get; set; }
         public int CantidadMax { get; set; }
 
-        public TipoIngrediente(int IdTipoIngrediente, string Detalle, int CantidadMax)
+        public TipoIngrediente(string Detalle, int CantidadMax)
         {
             this.IdTipoIngrediente = IdTipoIngrediente;
             this.Detalle = Detalle;
