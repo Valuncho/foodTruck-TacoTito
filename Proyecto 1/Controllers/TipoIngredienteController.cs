@@ -16,9 +16,9 @@ namespace Proyecto_1.IngredienteController
             tiposIngredientes = new List<TipoIngrediente>();
         }
 
-        public void CrearNuevoTipoIngrediente(int id, string detalle, int cantidadMax)
+        public void CrearNuevoTipoIngrediente(int idTipoIngrediente, string detalle, int cantidadMax)
         {
-            TipoIngrediente tipoIngrediente = new TipoIngrediente(id, detalle, cantidadMax);
+            TipoIngrediente tipoIngrediente = new TipoIngrediente(idTipoIngrediente, detalle, cantidadMax);
             tiposIngredientes.Add(tipoIngrediente);
         }
 
@@ -44,5 +44,10 @@ namespace Proyecto_1.IngredienteController
         {
             return tiposIngredientes.Find(ti => ti.IdTipoIngrediente == idTipoIngrediente);
         }
+        public List<TipoIngrediente> ObtenerTiposIngredientes()
+        {
+            return tiposIngredientes;
+        }
+
     }
 }
