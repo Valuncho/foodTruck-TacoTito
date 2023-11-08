@@ -14,14 +14,14 @@ namespace Proyecto_1.Modelo
 
         public TipoIngrediente(string Detalle, int CantidadMax)
         {
-            this.IdTipoIngrediente = IdTipoIngrediente;
+            //this.IdTipoIngrediente = IdTipoIngrediente;
             this.Detalle = Detalle;
             this.CantidadMax = CantidadMax;
         }
 
         public override string ToString()
         {
-            return $"Tipo de Ingrediente #{IdTipoIngrediente} - Detalle: {Detalle} - Cantidad Máxima: {CantidadMax}";
+            return $"Tipo de Ingrediente {IdTipoIngrediente} - Detalle: {Detalle} - Cantidad Máxima: {CantidadMax}";
         }
 
         public override bool Equals(object obj)

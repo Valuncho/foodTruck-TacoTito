@@ -9,17 +9,26 @@ namespace Proyecto_1.IngredienteController
 {
     public class TipoIngredienteController
     {
-        private List<TipoIngrediente> tiposIngredientes;
+        private List<TipoIngrediente> tipoIngredientes = new List<TipoIngrediente>();
+        private static TipoIngredienteController instancia;
 
-        public TipoIngredienteController()
+        private TipoIngredienteController()
         {
-            tiposIngredientes = new List<TipoIngrediente>();
+
+        }
+        public static TipoIngredienteController GetInstance()
+        {
+            if (instancia == null)
+            {
+                instancia = new TipoIngredienteController();
+            }
+            return instancia;
         }
 
-        public void CrearNuevoTipoIngrediente( string detalle, int cantidadMax)
+        public void CrearNuevoTipoIngrediente(string detalle, int cantidadMax)
         {
             TipoIngrediente tipoIngrediente = new TipoIngrediente(detalle, cantidadMax);
-            tiposIngredientes.Add(tipoIngrediente);
+            tipoIngredientes.Add(tipoIngrediente);
         }
 
         public void EliminarTipoIngrediente(int idTipoIngrediente)
@@ -27,7 +36,7 @@ namespace Proyecto_1.IngredienteController
             TipoIngrediente tipoIngrediente = ObtenerTipoIngredientePorId(idTipoIngrediente);
             if (tipoIngrediente != null)
             {
-                tiposIngredientes.Remove(tipoIngrediente);
+                tipoIngredientes.Remove(tipoIngrediente);
             }
         }
 
@@ -42,11 +51,11 @@ namespace Proyecto_1.IngredienteController
         }
         public TipoIngrediente ObtenerTipoIngredientePorId(int idTipoIngrediente)
         {
-            return tiposIngredientes.Find(ti => ti.IdTipoIngrediente == idTipoIngrediente);
+            return tipoIngredientes.Find(ti => ti.IdTipoIngrediente == idTipoIngrediente);
         }
         public List<TipoIngrediente> ObtenerTiposIngredientes()
         {
-            return tiposIngredientes;
+            return tipoIngredientes;
         }
 
     }
