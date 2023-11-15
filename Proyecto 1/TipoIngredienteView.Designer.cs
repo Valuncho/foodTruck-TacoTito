@@ -43,7 +43,7 @@
             // btnTipoIngredienteAgregar
             // 
             this.btnTipoIngredienteAgregar.Location = new System.Drawing.Point(14, 99);
-            this.btnTipoIngredienteAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTipoIngredienteAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnTipoIngredienteAgregar.Name = "btnTipoIngredienteAgregar";
             this.btnTipoIngredienteAgregar.Size = new System.Drawing.Size(137, 22);
             this.btnTipoIngredienteAgregar.TabIndex = 0;
@@ -129,6 +129,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "Eliminar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // TipoIngredienteView
             // 
@@ -143,7 +144,7 @@
             this.Controls.Add(this.DataGridTipoIngrediente);
             this.Controls.Add(this.lblTipoIngredienteTexto);
             this.Controls.Add(this.btnTipoIngredienteAgregar);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TipoIngredienteView";
             this.Text = "IngredienteView";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridTipoIngrediente)).EndInit();

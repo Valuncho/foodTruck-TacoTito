@@ -1,4 +1,5 @@
-﻿using Proyecto_1.Modelo;
+﻿using Proyecto_1.DAO;
+using Proyecto_1.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Proyecto_1.IngredienteController
 {
     public class TipoIngredienteController
     {
+        private TipoIngredienteDAO tipoIngDao = TipoIngredienteDAO.getInstance();
         private List<TipoIngrediente> tipoIngredientes = new List<TipoIngrediente>();
         private static TipoIngredienteController instancia;
 
@@ -28,21 +30,20 @@ namespace Proyecto_1.IngredienteController
         public void CrearNuevoTipoIngrediente(string detalle, int cantidadMax)
         {
             TipoIngrediente tipoIngrediente = new TipoIngrediente(detalle, cantidadMax);
+            tipoIngDao.InsertarTipoIngrediente(tipoIngrediente);
             tipoIngredientes.Add(tipoIngrediente);
         }
 
-        public void EliminarTipoIngrediente(int idTipoIngrediente)
+        public void EliminarTipoIngrediente(TipoIngrediente tipoIngrediente)
         {
-            TipoIngrediente tipoIngrediente = ObtenerTipoIngredientePorId(idTipoIngrediente);
             if (tipoIngrediente != null)
             {
                 tipoIngredientes.Remove(tipoIngrediente);
             }
         }
 
-        public void ModificarTipoIngrediente(int idTipoIngrediente, string nuevoDetalle, int nuevaCantidadMax)
+        public void ModificarTipoIngrediente(TipoIngrediente tipoIngrediente, string nuevoDetalle, int nuevaCantidadMax)
         {
-            TipoIngrediente tipoIngrediente = ObtenerTipoIngredientePorId(idTipoIngrediente);
             if (tipoIngrediente != null)
             {
                 tipoIngrediente.Detalle = nuevoDetalle;

@@ -19,7 +19,6 @@ namespace Proyecto_1
         public TipoIngredienteView()
         {
             InitializeComponent();
-            // DataGridTipoIngrediente.Columns.Add("IdTipoIngrediente", "ID");
             DataGridTipoIngrediente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DataGridTipoIngrediente.Columns.Add("Detalle", "Detalle");
             DataGridTipoIngrediente.Columns.Add("CantidadMax", "Cantidad Máxima");
@@ -81,6 +80,27 @@ namespace Proyecto_1
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (DataGridTipoIngrediente.SelectedRows.Count > 0)
+            {
+                // Obtener el índice de la fila seleccionada
+                int rowIndex = DataGridTipoIngrediente.SelectedRows[0].Index;
+
+                TipoIngrediente tipoIngredienteAEliminar = (TipoIngrediente)DataGridTipoIngrediente.SelectedRows[0].DataBoundItem;
+
+                // Eliminar el TipoIngrediente
+                TipoIngredienteCtr.EliminarTipoIngrediente(tipoIngredienteAEliminar);
+
+                // Actualizar la vista, por ejemplo, recargando los datos en un DataGridView
+                ActualizarDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una fila para eliminar.");
+            }
         }
     }
 }

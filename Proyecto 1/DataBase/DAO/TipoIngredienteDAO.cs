@@ -3,17 +3,28 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-
+using System.Windows.Forms;
 
 namespace Proyecto_1.DAO
 {
     public class TipoIngredienteDAO
     {
-        private string ConexionDataBase;
+
+        protected static TipoIngredienteDAO instance;
+        private string ConexionDataBase = ConfigurationManager.ConnectionStrings["ConexionDB"].ConnectionString;
 
         public TipoIngredienteDAO()
         {
-            ConexionDataBase = ConfigurationManager.ConnectionStrings["ConexionDB"].ConnectionString;
+            //ConexionDataBase = ConfigurationManager.ConnectionStrings["ConexionDB"].ConnectionString;
+        }
+
+        public static TipoIngredienteDAO getInstance()
+        {
+            if (instance == null) 
+            { 
+                instance = new TipoIngredienteDAO();
+            }
+            return instance;
         }
 
         public void InsertarTipoIngrediente(TipoIngrediente tipoIngrediente)
@@ -21,7 +32,7 @@ namespace Proyecto_1.DAO
             using (SqlConnection conexion = new SqlConnection(ConexionDataBase))
             {
                 conexion.Open();
-                string consulta = "INSERT INTO TipoIngredientes (IdTipoIngrediente, Detalle, CantidadMax) " +
+                string consulta = "INSERT INTO TipoIngrediente (IdTipoIngrediente, Detalle, CantidadMax) " +
                                   "VALUES (@IdTipoIngrediente, @Detalle, @CantidadMax)";
                 using (SqlCommand comando = new SqlCommand(consulta, conexion))
                 {
@@ -29,7 +40,8 @@ namespace Proyecto_1.DAO
                     comando.Parameters.AddWithValue("@Detalle", tipoIngrediente.Detalle);
                     comando.Parameters.AddWithValue("@CantidadMax", tipoIngrediente.CantidadMax);
                     comando.ExecuteNonQuery();
-                }
+                    MessageBox.Show("SI SE PUDO AJAJAJAJA");
+                } 
             }
         }
 
