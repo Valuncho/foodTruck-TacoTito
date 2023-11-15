@@ -40,6 +40,7 @@ namespace Proyecto_1.IngredienteController
             if (tipoIngrediente != null)
             {
                 tipoIngredientes.Remove(tipoIngrediente);
+                tipoIngDao.EliminarTipoIngrediente(tipoIngrediente.IdTipoIngrediente);
             }
         }
 
@@ -57,7 +58,6 @@ namespace Proyecto_1.IngredienteController
         }
         public List<TipoIngrediente> ObtenerTiposIngredientes()
         {
-            tipoIngredientes = tipoIngDao.TraerTiposDeIngredientes();
             return tipoIngredientes;
         }
 

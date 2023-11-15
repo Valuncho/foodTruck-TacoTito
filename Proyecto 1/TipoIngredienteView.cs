@@ -86,11 +86,6 @@ namespace Proyecto_1
             if (DataGridTipoIngrediente.SelectedRows.Count > 0)
             {
                 DataGridViewRow filaSeleccionada = DataGridTipoIngrediente.SelectedRows[0];
-                /*int id = Convert.ToInt32(filaSeleccionada.Cells["Id"].Value);
-                string detalle = filaSeleccionada.Cells["Detalle"].Value.ToString();
-                int cantidadMaxima = Convert.ToInt32(filaSeleccionada.Cells["CantidadMaxima"].Value);
-
-                TipoIngrediente tipoIngredienteAModificar = TipoIngredienteCtr.ObtenerTipoIngredientePorId(tipoIngredienteEnDgv.IdTipoIngrediente);*/
                 tbId.Text = filaSeleccionada.Cells["Id"].Value.ToString();
                 textBox1.Text = filaSeleccionada.Cells["Detalle"].Value.ToString();
                 numericUpDown1.Value = Convert.ToInt32(filaSeleccionada.Cells["CantidadMax"].Value);
@@ -116,8 +111,9 @@ namespace Proyecto_1
         {
             if (DataGridTipoIngrediente.SelectedRows.Count > 0)
             {
-                int rowIndex = DataGridTipoIngrediente.SelectedRows[0].Index;
-                TipoIngrediente tipoIngredienteAEliminar = (TipoIngrediente)DataGridTipoIngrediente.SelectedRows[0].DataBoundItem;
+                DataGridViewRow filaSeleccionada = DataGridTipoIngrediente.SelectedRows[0];
+                int idTipoIng = Convert.ToInt32(filaSeleccionada.Cells["ID"].Value);
+                TipoIngrediente tipoIngredienteAEliminar = TipoIngredienteCtr.ObtenerTipoIngredientePorId(idTipoIng);
                 TipoIngredienteCtr.EliminarTipoIngrediente(tipoIngredienteAEliminar);
                 ActualizarDataGridView();
             }
