@@ -16,6 +16,7 @@ namespace Proyecto_1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //string connectionString = "Data Source=LAPTOP-5V5GHNNN;Initial Catalog=TacoTitoDB;User ID=sa;Password=1234";
             Application.Run(new TipoIngredienteView());
         }
     }

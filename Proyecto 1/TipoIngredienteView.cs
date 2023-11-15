@@ -15,26 +15,30 @@ namespace Proyecto_1
 {
     public partial class TipoIngredienteView : Form
     {
-        private TipoIngredienteController controladora;
+        TipoIngredienteController TipoIngredienteCtr = TipoIngredienteController.GetInstance();
         public TipoIngredienteView()
         {
             InitializeComponent();
-            DataGridTipoIngrediente.Columns.Add("IdTipoIngrediente", "ID");
+            DataGridTipoIngrediente.RowHeadersVisible = false;
+            DataGridTipoIngrediente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DataGridTipoIngrediente.Columns.Add("Id", "Id");
+            DataGridTipoIngrediente.Columns["Id"].Visible = false;
             DataGridTipoIngrediente.Columns.Add("Detalle", "Detalle");
             DataGridTipoIngrediente.Columns.Add("CantidadMax", "Cantidad Máxima");
-            controladora = new TipoIngredienteController();
+            DataGridTipoIngrediente.Columns["Detalle"].Width = 105;
+            DataGridTipoIngrediente.Columns["CantidadMax"].Width = 104;
+            ActualizarDataGridView();
         }
 
         private void btnTipoIngredienteAgregar_Click(object sender, EventArgs e)
         {
             string detalle = textBox1.Text; // Obtiene el detalle del TextBox
-
+            
             if (!string.IsNullOrEmpty(detalle))
-            {
+            {                
                 int cantidadMaxima = (int)numericUpDown1.Value;
                 // Llama al método de la controladora para agregar el nuevo tipo de ingrediente
-                controladora.CrearNuevoTipoIngrediente(1, detalle, cantidadMaxima); 
-
+                TipoIngredienteCtr.CrearNuevoTipoIngrediente(detalle, cantidadMaxima);  
                 textBox1.Text = string.Empty;
                 ActualizarDataGridView();
             }
@@ -57,7 +61,7 @@ namespace Proyecto_1
             DataGridTipoIngrediente.Rows.Clear();
 
             // Obtén la lista de tipos de ingredientes desde la controladora
-            List<TipoIngrediente> tiposIngredientes = controladora.ObtenerTiposIngredientes();
+            List<TipoIngrediente> tiposIngredientes = TipoIngredienteCtr.ObtenerTiposIngredientes();
 
             // Recorre la lista y agrega cada tipo de ingrediente al DataGridView
             foreach (TipoIngrediente tipoIngrediente in tiposIngredientes)
@@ -74,9 +78,49 @@ namespace Proyecto_1
             }
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
+            btnGuardarCambios.Visible = true;
+            lbId.Visible = true;
+            tbId.Visible = true;
+            if (DataGridTipoIngrediente.SelectedRows.Count > 0)
+            {
+                DataGridViewRow filaSeleccionada = DataGridTipoIngrediente.SelectedRows[0];
+                tbId.Text = filaSeleccionada.Cells["Id"].Value.ToString();
+                textBox1.Text = filaSeleccionada.Cells["Detalle"].Value.ToString();
+                numericUpDown1.Value = Convert.ToInt32(filaSeleccionada.Cells["CantidadMax"].Value);
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una fila para modificar.");
+            }
+        }
 
+        private void btnGuardarCambios_Click(object sender, EventArgs e)
+        {
+            string Detalle = textBox1.Text;
+            int CantidadMaxima = (int)numericUpDown1.Value;
+            int idTipoIngrediente = Convert.ToInt32(tbId.Text);
+            TipoIngrediente tipoIngredienteAModificar = new TipoIngrediente(idTipoIngrediente, Detalle, CantidadMaxima);
+            TipoIngredienteCtr.ModificarTipoIngrediente(tipoIngredienteAModificar);
+            ActualizarDataGridView();
+            btnGuardarCambios.Visible = false;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (DataGridTipoIngrediente.SelectedRows.Count > 0)
+            {
+                DataGridViewRow filaSeleccionada = DataGridTipoIngrediente.SelectedRows[0];
+                int idTipoIng = Convert.ToInt32(filaSeleccionada.Cells["ID"].Value);
+                TipoIngrediente tipoIngredienteAEliminar = TipoIngredienteCtr.ObtenerTipoIngredientePorId(idTipoIng);
+                TipoIngredienteCtr.EliminarTipoIngrediente(tipoIngredienteAEliminar);
+                ActualizarDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una fila para eliminar.");
+            }
         }
     }
 }

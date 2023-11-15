@@ -8,20 +8,28 @@ namespace Proyecto_1.Modelo
 {
     public class TipoIngrediente
     {
+        private static int idCounter = 0;
         public int IdTipoIngrediente { get; set; }
         public string Detalle { get; set; }
         public int CantidadMax { get; set; }
 
-        public TipoIngrediente(int IdTipoIngrediente, string Detalle, int CantidadMax)
+        public TipoIngrediente(string Detalle, int CantidadMax)
         {
-            this.IdTipoIngrediente = IdTipoIngrediente;
+            idCounter++;
+            IdTipoIngrediente = idCounter;
+            this.Detalle = Detalle;
+            this.CantidadMax = CantidadMax;
+        }
+        public TipoIngrediente(int idTipoIng, string Detalle, int CantidadMax)
+        {
+            this.IdTipoIngrediente = idTipoIng;
             this.Detalle = Detalle;
             this.CantidadMax = CantidadMax;
         }
 
         public override string ToString()
         {
-            return $"Tipo de Ingrediente #{IdTipoIngrediente} - Detalle: {Detalle} - Cantidad Máxima: {CantidadMax}";
+            return $"Tipo de Ingrediente {IdTipoIngrediente} - Detalle: {Detalle} - Cantidad Máxima: {CantidadMax}";
         }
 
         public override bool Equals(object obj)

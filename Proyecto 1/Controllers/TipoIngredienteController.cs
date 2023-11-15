@@ -1,52 +1,64 @@
-﻿using Proyecto_1.Modelo;
+﻿using Proyecto_1.DAO;
+using Proyecto_1.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Proyecto_1.IngredienteController
 {
     public class TipoIngredienteController
     {
-        private List<TipoIngrediente> tiposIngredientes;
+        private TipoIngredienteDAO tipoIngDao = TipoIngredienteDAO.getInstance();
+        private List<TipoIngrediente> tipoIngredientes = new List<TipoIngrediente>();
+        private static TipoIngredienteController instancia;
 
-        public TipoIngredienteController()
+        private TipoIngredienteController()
         {
-            tiposIngredientes = new List<TipoIngrediente>();
+
+        }
+        public static TipoIngredienteController GetInstance()
+        {
+            if (instancia == null)
+            {
+                instancia = new TipoIngredienteController();
+            }
+            return instancia;
         }
 
-        public void CrearNuevoTipoIngrediente(int idTipoIngrediente, string detalle, int cantidadMax)
+        public void CrearNuevoTipoIngrediente(string detalle, int cantidadMax)
         {
-            TipoIngrediente tipoIngrediente = new TipoIngrediente(idTipoIngrediente, detalle, cantidadMax);
-            tiposIngredientes.Add(tipoIngrediente);
+            TipoIngrediente tipoIngrediente = new TipoIngrediente(detalle, cantidadMax);
+            tipoIngDao.InsertarTipoIngrediente(tipoIngrediente);
+            tipoIngredientes.Add(tipoIngrediente);
         }
 
-        public void EliminarTipoIngrediente(int idTipoIngrediente)
+        public void EliminarTipoIngrediente(TipoIngrediente tipoIngrediente)
         {
-            TipoIngrediente tipoIngrediente = ObtenerTipoIngredientePorId(idTipoIngrediente);
             if (tipoIngrediente != null)
             {
-                tiposIngredientes.Remove(tipoIngrediente);
+                tipoIngredientes.Remove(tipoIngrediente);
+                tipoIngDao.EliminarTipoIngrediente(tipoIngrediente.IdTipoIngrediente);
             }
         }
 
-        public void ModificarTipoIngrediente(int idTipoIngrediente, string nuevoDetalle, int nuevaCantidadMax)
+        public void ModificarTipoIngrediente(TipoIngrediente tipoIngrediente)
         {
-            TipoIngrediente tipoIngrediente = ObtenerTipoIngredientePorId(idTipoIngrediente);
             if (tipoIngrediente != null)
             {
-                tipoIngrediente.Detalle = nuevoDetalle;
-                tipoIngrediente.CantidadMax = nuevaCantidadMax;
+                tipoIngDao.ActualizarTipoIngrediente(tipoIngrediente);
+                MessageBox.Show("SE MODIFICÓ CORRECTAMENTE");
             }
         }
         public TipoIngrediente ObtenerTipoIngredientePorId(int idTipoIngrediente)
         {
-            return tiposIngredientes.Find(ti => ti.IdTipoIngrediente == idTipoIngrediente);
+            return tipoIngredientes.Find(ti => ti.IdTipoIngrediente == idTipoIngrediente);
         }
         public List<TipoIngrediente> ObtenerTiposIngredientes()
         {
-            return tiposIngredientes;
+            return tipoIngredientes;
         }
 
     }
