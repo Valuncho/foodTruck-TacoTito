@@ -19,9 +19,15 @@ namespace Proyecto_1
         public TipoIngredienteView()
         {
             InitializeComponent();
+            DataGridTipoIngrediente.RowHeadersVisible = false;
             DataGridTipoIngrediente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DataGridTipoIngrediente.Columns.Add("Id", "Id");
+            DataGridTipoIngrediente.Columns["Id"].Visible = false;
             DataGridTipoIngrediente.Columns.Add("Detalle", "Detalle");
             DataGridTipoIngrediente.Columns.Add("CantidadMax", "Cantidad Máxima");
+            DataGridTipoIngrediente.Columns["Detalle"].Width = 105;
+            DataGridTipoIngrediente.Columns["CantidadMax"].Width = 104;
+            ActualizarDataGridView();
         }
 
         private void btnTipoIngredienteAgregar_Click(object sender, EventArgs e)
@@ -63,7 +69,7 @@ namespace Proyecto_1
                 DataGridViewRow fila = new DataGridViewRow();
 
                 // Agrega cada propiedad del tipo de ingrediente como una celda en la fila
-                //fila.Cells.Add(new DataGridViewTextBoxCell { Value = tipoIngrediente.IdTipoIngrediente });
+                fila.Cells.Add(new DataGridViewTextBoxCell { Value = tipoIngrediente.IdTipoIngrediente });
                 fila.Cells.Add(new DataGridViewTextBoxCell { Value = tipoIngrediente.Detalle });
                 fila.Cells.Add(new DataGridViewTextBoxCell { Value = tipoIngrediente.CantidadMax });
 
@@ -72,29 +78,47 @@ namespace Proyecto_1
             }
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
+            btnGuardarCambios.Visible = true;
+            lbId.Visible = true;
+            tbId.Visible = true;
+            if (DataGridTipoIngrediente.SelectedRows.Count > 0)
+            {
+                DataGridViewRow filaSeleccionada = DataGridTipoIngrediente.SelectedRows[0];
+                /*int id = Convert.ToInt32(filaSeleccionada.Cells["Id"].Value);
+                string detalle = filaSeleccionada.Cells["Detalle"].Value.ToString();
+                int cantidadMaxima = Convert.ToInt32(filaSeleccionada.Cells["CantidadMaxima"].Value);
 
+                TipoIngrediente tipoIngredienteAModificar = TipoIngredienteCtr.ObtenerTipoIngredientePorId(tipoIngredienteEnDgv.IdTipoIngrediente);*/
+                tbId.Text = filaSeleccionada.Cells["Id"].Value.ToString();
+                textBox1.Text = filaSeleccionada.Cells["Detalle"].Value.ToString();
+                numericUpDown1.Value = Convert.ToInt32(filaSeleccionada.Cells["CantidadMax"].Value);
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una fila para modificar.");
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
-
+            string Detalle = textBox1.Text;
+            int CantidadMaxima = (int)numericUpDown1.Value;
+            int idTipoIngrediente = Convert.ToInt32(tbId.Text);
+            TipoIngrediente tipoIngredienteAModificar = new TipoIngrediente(idTipoIngrediente, Detalle, CantidadMaxima);
+            TipoIngredienteCtr.ModificarTipoIngrediente(tipoIngredienteAModificar);
+            ActualizarDataGridView();
+            btnGuardarCambios.Visible = false;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (DataGridTipoIngrediente.SelectedRows.Count > 0)
             {
-                // Obtener el índice de la fila seleccionada
                 int rowIndex = DataGridTipoIngrediente.SelectedRows[0].Index;
-
                 TipoIngrediente tipoIngredienteAEliminar = (TipoIngrediente)DataGridTipoIngrediente.SelectedRows[0].DataBoundItem;
-
-                // Eliminar el TipoIngrediente
                 TipoIngredienteCtr.EliminarTipoIngrediente(tipoIngredienteAEliminar);
-
-                // Actualizar la vista, por ejemplo, recargando los datos en un DataGridView
                 ActualizarDataGridView();
             }
             else

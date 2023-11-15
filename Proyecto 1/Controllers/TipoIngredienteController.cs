@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Proyecto_1.IngredienteController
 {
@@ -42,12 +43,12 @@ namespace Proyecto_1.IngredienteController
             }
         }
 
-        public void ModificarTipoIngrediente(TipoIngrediente tipoIngrediente, string nuevoDetalle, int nuevaCantidadMax)
+        public void ModificarTipoIngrediente(TipoIngrediente tipoIngrediente)
         {
             if (tipoIngrediente != null)
             {
-                tipoIngrediente.Detalle = nuevoDetalle;
-                tipoIngrediente.CantidadMax = nuevaCantidadMax;
+                tipoIngDao.ActualizarTipoIngrediente(tipoIngrediente);
+                MessageBox.Show("SE MODIFICÓ CORRECTAMENTE");
             }
         }
         public TipoIngrediente ObtenerTipoIngredientePorId(int idTipoIngrediente)
@@ -56,6 +57,7 @@ namespace Proyecto_1.IngredienteController
         }
         public List<TipoIngrediente> ObtenerTiposIngredientes()
         {
+            tipoIngredientes = tipoIngDao.TraerTiposDeIngredientes();
             return tipoIngredientes;
         }
 
